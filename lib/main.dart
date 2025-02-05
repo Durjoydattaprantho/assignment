@@ -1,6 +1,4 @@
 import 'package:assignment/assignment2/firstPage.dart';
-import 'package:assignment/assignment2/hi.dart';
-import 'package:assignment/assignment2/my.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -17,20 +17,6 @@ class _pageOneState extends State<pageOne> {
   final TextEditingController numberController = TextEditingController();
   List<Contact> contacts = [];
 
-  void addContact() {
-    String name = nameController.text.trim();
-    String number = numberController.text.trim();
-
-    if (name.isNotEmpty && number.isNotEmpty) {
-      setState(() {
-        contacts.add(Contact(name: name, number: number));
-      });
-
-      nameController.clear();
-      numberController.clear();
-    }
-  }
-
   void deleteContact(int index) {
     setState(() {
       contacts.removeAt(index);
@@ -45,11 +31,11 @@ class _pageOneState extends State<pageOne> {
         content: const Text("Are you sure you want to delete?"),
         actions: [
           IconButton(
-            icon: const Icon(Icons.cancel, color: Colors.grey),
+            icon: const Icon(Icons.add_box_outlined, color: Colors.grey),
             onPressed: () => Navigator.pop(context),
           ),
           IconButton(
-            icon: const Icon(Icons.delete, color: Colors.red),
+            icon: const Icon(Icons.delete, color: Colors.blueGrey),
             onPressed: () {
               deleteContact(index);
               Navigator.pop(context);
@@ -59,6 +45,8 @@ class _pageOneState extends State<pageOne> {
       ),
     );
   }
+
+
   void confirmDelete(String id) {
     showDialog(
       context: context,
@@ -89,6 +77,7 @@ class _pageOneState extends State<pageOne> {
         title: const Text("Contact List"),
         backgroundColor: Colors.blueGrey,
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
